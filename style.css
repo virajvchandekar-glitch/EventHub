@@ -1,0 +1,407 @@
+/* =========================================
+   EVENTHUB - CUSTOM STYLES
+   Color Theme:
+   Mocha Brown
+   Champagne Gold
+   Burnt Amber
+   Cream
+   Dark Charcoal
+========================================= */
+
+
+/* ---------- GENERAL ---------- */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #F7F2E8;
+    color: #24201E;
+}
+
+
+/* ---------- NAVBAR ---------- */
+
+.navbar {
+    background-color: #24201E;
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    color: #D6B878 !important;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.navbar-brand span {
+    color: #C46A2B;
+}
+
+.navbar .nav-link {
+    color: #F7F2E8 !important;
+    margin-left: 20px;
+    transition: 0.3s;
+}
+
+.navbar .nav-link:hover {
+    color: #D6B878 !important;
+}
+
+
+/* ---------- HERO ---------- */
+
+.hero-section {
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            rgba(36, 32, 30, 0.92),
+            rgba(90, 62, 54, 0.95)
+        );
+
+    color: white;
+    padding: 80px 20px;
+}
+
+.hero-small {
+    color: #D6B878;
+    letter-spacing: 4px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero-section h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero-section h1 span {
+    color: #D6B878;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    max-width: 650px;
+    margin: auto;
+    line-height: 1.7;
+    color: #F7F2E8;
+}
+
+.hero-btn {
+    margin-top: 30px;
+    background-color: #C46A2B;
+    color: white;
+    padding: 13px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.hero-btn:hover {
+    background-color: #D6B878;
+    color: #24201E;
+    transform: translateY(-3px);
+}
+
+
+/* ---------- SECTION HEADINGS ---------- */
+
+.section-heading {
+    margin-bottom: 20px;
+}
+
+.section-small {
+    color: #C46A2B;
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 0.85rem;
+}
+
+.section-heading h2 {
+    color: #5A3E36;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.section-heading p {
+    color: #6d625d;
+}
+
+
+/* ---------- EVENTS ---------- */
+
+.events-section {
+    padding: 90px 0;
+    background-color: #F7F2E8;
+}
+
+.event-card {
+    height: 100%;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    border-top: 5px solid #D6B878;
+    box-shadow: 0 8px 25px rgba(36, 32, 30, 0.08);
+    transition: 0.3s;
+}
+
+.event-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(36, 32, 30, 0.15);
+}
+
+.event-icon {
+    font-size: 4rem;
+    text-align: center;
+    padding: 35px 0 20px;
+    background-color: #5A3E36;
+}
+
+.event-content {
+    padding: 25px;
+}
+
+.event-category {
+    color: #C46A2B;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.event-content h3 {
+    color: #5A3E36;
+    font-weight: bold;
+    margin: 10px 0 20px;
+}
+
+.event-content p {
+    color: #6d625d;
+}
+
+.event-price {
+    color: #C46A2B;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.event-price small {
+    color: #6d625d;
+    font-size: 0.8rem;
+    font-weight: normal;
+}
+
+
+/* ---------- EVENT BUTTON ---------- */
+
+.event-btn {
+    width: 100%;
+    background-color: #C46A2B;
+    color: white;
+    padding: 11px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.event-btn:hover {
+    background-color: #5A3E36;
+    color: white;
+}
+
+
+/* ---------- BOOKING ---------- */
+
+.booking-section {
+    padding: 90px 0;
+    background-color: #eee4d3;
+}
+
+.booking-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 35px rgba(36, 32, 30, 0.12);
+}
+
+.form-label {
+    color: #5A3E36;
+    font-weight: bold;
+}
+
+.form-control,
+.form-select {
+    border: 1px solid #d5c7b5;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #C46A2B;
+    box-shadow: 0 0 0 0.2rem rgba(196, 106, 43, 0.15);
+}
+
+
+/* ---------- ERRORS ---------- */
+
+.error-message {
+    display: block;
+    color: #c0392b;
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+
+/* ---------- PRICE ---------- */
+
+.total-amount {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #C46A2B;
+    background-color: #F7F2E8;
+}
+
+
+/* ---------- PAYMENT ---------- */
+
+.payment-box {
+    background-color: #F7F2E8;
+    border-left: 4px solid #D6B878;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+}
+
+.payment-box h5 {
+    color: #5A3E36;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.form-check {
+    margin-bottom: 10px;
+}
+
+
+/* ---------- CONFIRM BUTTON ---------- */
+
+.confirm-btn {
+    background-color: #C46A2B;
+    color: white;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.05rem;
+    transition: 0.3s;
+}
+
+.confirm-btn:hover {
+    background-color: #5A3E36;
+    color: white;
+}
+
+
+/* ---------- CONFIRMATION ---------- */
+
+.confirmation-box {
+    display: none;
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 10px;
+    background-color: #e9f7ef;
+    border-left: 5px solid #2e8b57;
+}
+
+.confirmation-box h4 {
+    color: #2e8b57;
+    margin-bottom: 15px;
+}
+
+.confirmation-box p {
+    margin-bottom: 8px;
+}
+
+
+/* ---------- CONTACT ---------- */
+
+.contact-section {
+    padding: 70px 0;
+    background-color: #F7F2E8;
+}
+
+.contact-section h2 {
+    color: #5A3E36;
+    font-weight: bold;
+}
+
+.contact-email {
+    color: #C46A2B;
+    font-weight: bold;
+}
+
+
+/* ---------- FOOTER ---------- */
+
+footer {
+    background-color: #24201E;
+    color: #F7F2E8;
+    padding: 40px 0;
+}
+
+footer h4 {
+    color: #D6B878;
+    font-size: 1.8rem;
+}
+
+footer h4 span {
+    color: #C46A2B;
+}
+
+footer p {
+    color: #cfc4bc;
+}
+
+footer .copyright {
+    margin-top: 20px;
+    font-size: 0.85rem;
+}
+
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 768px) {
+
+    .hero-section {
+        min-height: 500px;
+    }
+
+    .hero-section h1 {
+        font-size: 2.7rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .navbar .nav-link {
+        margin-left: 0;
+        padding: 10px 0;
+    }
+
+    .booking-card {
+        padding: 25px;
+    }
+
+    .section-heading h2 {
+        font-size: 2rem;
+    }
+
+}
