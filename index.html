@@ -1,588 +1,716 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#090b18">
 
-    <title>EventHub - Online Event Booking</title>
+    <title>EventHub — Find Your Next Experience</title>
 
-    <!-- Bootstrap CSS -->
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+    <div class="glow glow-a"></div>
+    <div class="glow glow-b"></div>
+    <div id="customCursor">✦</div>
 
-<nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container">
+    <!-- NAVIGATION -->
+    <header class="header">
 
-        <a class="navbar-brand" href="#">
+        <a class="brand" href="#" data-view="welcome">
+            <span class="logo">E✦</span>
             Event<span>Hub</span>
         </a>
 
-        <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-        >
-            <span class="navbar-toggler-icon"></span>
+        <nav id="nav">
+            <button data-view="explore">Explore</button>
+            <button data-view="mybookings">My bookings</button>
+            <button data-view="about">About</button>
+        </nav>
+
+        <div class="header-right">
+            <span id="welcomeUser"></span>
+            <button class="outline small" id="changeProfileBtn">
+                My profile
+            </button>
+        </div>
+
+        <button class="hamburger" id="menuToggle" aria-label="Toggle navigation">
+            ☰
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
+    </header>
 
-            <ul class="navbar-nav ms-auto">
+    <main>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#home">Home</a>
-                </li>
+        <!-- PAGE 1: WELCOME AND PROFILE -->
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#events">Events</a>
-                </li>
+        <section class="view welcome active" id="welcomeView">
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#booking">Book Tickets</a>
-                </li>
+            <div class="welcome-grid">
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact</a>
-                </li>
+                <div>
+                    <p class="eyebrow">
+                        YOUR CITY. YOUR PEOPLE. YOUR MOMENT.
+                    </p>
 
-            </ul>
+                    <h1>
+                        Welcome to<br>
+                        <span class="gradient">EventHub.</span>
+                    </h1>
 
-        </div>
-    </div>
-</nav>
+                    <p class="lead">
+                        Find experiences you'll talk about tomorrow.
+                        Live music, gaming, comedy, tech, sports,
+                        and everything in between.
+                    </p>
 
+                    <div class="mini-points">
+                        <span>✦ Discover something new</span>
+                        <span>↗ Book with ease</span>
+                    </div>
+                </div>
 
-<!-- ================= HERO ================= -->
+                <div class="welcome-art">
 
-<section id="home" class="hero-section">
+                    <img
+                        class="art-main"
+                        src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=900&q=85"
+                        alt="Live concert"
+                    >
 
-    <div class="container text-center">
+                    <img
+                        class="art-small"
+                        src="https://images.unsplash.com/photo-1547394765-185e1e68f34e?auto=format&fit=crop&w=600&q=85"
+                        alt="Gaming setup"
+                    >
 
-        <p class="hero-small">WELCOME TO EVENTHUB</p>
+                    <span class="art-tag">LIVE EXPERIENCES</span>
 
-        <h1>
-            Discover Amazing
-            <span>Events</span>
-        </h1>
+                    <span class="art-bubble">
+                        12+
+                        <small>ways to have fun</small>
+                    </span>
 
-        <p class="hero-description">
-            Book tickets for conferences, festivals and business events
-            quickly and easily.
-        </p>
+                </div>
 
-        <a href="#events" class="btn hero-btn">
-            Explore Events
-        </a>
+            </div>
 
-    </div>
+            <div class="panel onboarding">
 
-</section>
-
-
-<!-- ================= EVENTS ================= -->
-
-<section id="events" class="events-section">
-
-    <div class="container">
-
-        <div class="section-heading text-center">
-
-            <p class="section-small">
-                FIND YOUR NEXT EXPERIENCE
-            </p>
-
-            <h2>Upcoming Events</h2>
-
-            <p>
-                Choose an event and reserve your tickets today.
-            </p>
-
-        </div>
-
-
-        <div class="row g-4 mt-3">
-
-            <!-- EVENT 1 -->
-
-            <div class="col-md-4">
-
-                <div class="event-card">
-
-                    <div class="event-icon">
-                        💻
+                <div class="section-title">
+                    <div>
+                        <p class="eyebrow">LET'S GET STARTED</p>
+                        <h2>First, a little about you.</h2>
                     </div>
 
-                    <div class="event-content">
+                    <span class="step">STEP 01 / 01</span>
+                </div>
 
-                        <span class="event-category">
-                            TECHNOLOGY
-                        </span>
+                <form id="profileForm">
 
-                        <h3>
-                            Tech Conference 2026
-                        </h3>
+                    <div class="fields three">
 
-                        <p>
-                            📅 15 November 2026
-                        </p>
+                        <label>
+                            Your name
+                            <input
+                                id="profileName"
+                                placeholder="e.g. Alex Morgan"
+                                maxlength="60"
+                                required
+                            >
+                        </label>
 
-                        <p>
-                            📍 Pune
-                        </p>
+                        <label>
+                            Email address
+                            <input
+                                id="profileEmail"
+                                type="email"
+                                placeholder="you@example.com"
+                                maxlength="120"
+                                required
+                            >
+                        </label>
 
-                        <h4 class="event-price">
-                            ₹999
-                            <small>/ ticket</small>
-                        </h4>
+                        <label>
+                            What are you into?
 
-                        <button
-                            class="btn event-btn"
-                            onclick="selectEvent('Tech Conference 2026', 999)"
-                        >
-                            Book Now
-                        </button>
+                            <select id="profileInterest">
+                                <option>All Events</option>
+                                <option>Technology</option>
+                                <option>Gaming</option>
+                                <option>Comedy</option>
+                                <option>Music</option>
+                                <option>Business</option>
+                                <option>Sports</option>
+                                <option>Entertainment</option>
+                                <option>Dance</option>
+                            </select>
+                        </label>
 
                     </div>
+
+                    <p id="profileError" class="error"></p>
+
+                    <button class="primary wide" type="submit">
+                        Let's explore EventHub <b>→</b>
+                    </button>
+
+                    <p class="note">
+                        Student project demo. Your profile is stored
+                        in this browser only.
+                    </p>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- PAGE 2: EXPLORE EVENTS -->
+
+        <section class="view" id="exploreView">
+
+            <div class="hero">
+
+                <div>
+                    <p class="eyebrow">
+                        MAKE ROOM FOR SOMETHING AMAZING
+                    </p>
+
+                    <h1>
+                        Find your next<br>
+                        <span class="gradient">“remember when?”</span>
+                    </h1>
+
+                    <p class="lead">
+                        Good nights, big ideas, new friends.
+                        It all starts here.
+                    </p>
+
+                    <button class="primary" id="jumpToEvents">
+                        Explore all events ↓
+                    </button>
+                </div>
+
+                <div class="hero-art">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=900&q=85"
+                        alt="Festival crowd"
+                    >
+
+                    <span>
+                        GOOD<br>
+                        VIBES ONLY
+                    </span>
 
                 </div>
 
             </div>
 
 
-            <!-- EVENT 2 -->
+            <!-- EVENT LIST -->
 
-            <div class="col-md-4">
+            <section class="events" id="eventsSection">
 
-                <div class="event-card">
+                <div class="section-title">
 
-                    <div class="event-icon">
-                        🎵
+                    <div>
+                        <p class="eyebrow">THE LINE-UP</p>
+                        <h2>
+                            Explore events<span class="pink">.</span>
+                        </h2>
+
+                        <p class="muted">
+                            Pick your vibe. We'll handle the rest.
+                        </p>
                     </div>
 
-                    <div class="event-content">
+                    <div class="count">
+                        <strong id="eventCount">12</strong>
+                        <span id="eventCountLabel">
+                            experiences to explore
+                        </span>
+                    </div>
 
-                        <span class="event-category">
-                            ENTERTAINMENT
+                </div>
+
+
+                <!-- SEARCH -->
+
+                <div class="tools">
+
+                    <input
+                        id="eventSearch"
+                        type="search"
+                        placeholder="⌕ Search events, categories..."
+                        aria-label="Search events"
+                    >
+
+                    <button class="outline" id="clearFilters">
+                        Clear filters ↺
+                    </button>
+
+                </div>
+
+
+                <!-- CATEGORY FILTERS -->
+
+                <div class="filters" id="categoryFilters">
+
+                    <button class="chip active" data-category="All Events">
+                        ✦ All Events
+                    </button>
+
+                    <button class="chip" data-category="Technology">
+                        Technology
+                    </button>
+
+                    <button class="chip" data-category="Gaming">
+                        Gaming
+                    </button>
+
+                    <button class="chip" data-category="Comedy">
+                        Comedy
+                    </button>
+
+                    <button class="chip" data-category="Music">
+                        Music
+                    </button>
+
+                    <button class="chip" data-category="Business">
+                        Business
+                    </button>
+
+                    <button class="chip" data-category="Sports">
+                        Sports
+                    </button>
+
+                    <button class="chip" data-category="Entertainment">
+                        Entertainment
+                    </button>
+
+                    <button class="chip" data-category="Dance">
+                        Dance
+                    </button>
+
+                </div>
+
+
+                <!-- JAVASCRIPT GENERATES EVENT CARDS HERE -->
+
+                <div
+                    class="event-grid"
+                    id="eventsGrid"
+                    aria-live="polite"
+                ></div>
+
+
+                <!-- EMPTY SEARCH RESULTS -->
+
+                <div id="emptyState" class="empty hidden">
+
+                    <h3>No events found</h3>
+
+                    <p>
+                        Try a different search or clear your filters.
+                    </p>
+
+                    <button class="outline" id="emptyClearBtn">
+                        Show all events
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- GROUP BOOKING PROMOTION -->
+
+            <div class="promo">
+
+                <div>
+                    <p class="eyebrow">BRING YOUR CREW</p>
+
+                    <h2>More friends. More memories.</h2>
+
+                    <p>
+                        Book together and unlock group discounts.
+                    </p>
+                </div>
+
+                <button class="light" id="groupBookingBtn">
+                    Plan a group outing →
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- PAGE 3: BOOKING -->
+
+        <section class="view page" id="bookingView">
+
+            <button class="back" data-view="explore">
+                ← Back to events
+            </button>
+
+            <p class="eyebrow">YOUR NEXT EXPERIENCE</p>
+
+            <h1>
+                Let's make it
+                <span class="gradient">official.</span>
+            </h1>
+
+            <p class="muted">
+                Choose tickets and confirm your demo booking.
+            </p>
+
+
+            <div class="booking-grid">
+
+                <!-- SELECTED EVENT PREVIEW -->
+
+                <div class="event-preview">
+
+                    <img
+                        id="bookingEventImage"
+                        src=""
+                        alt="Selected event"
+                    >
+
+                    <div class="preview-content">
+
+                        <span class="badge" id="bookingEventCategory">
+                            Event
                         </span>
 
-                        <h3>
-                            Music Festival
-                        </h3>
+                        <h2 id="bookingEventName">
+                            Choose an event
+                        </h2>
 
-                        <p>
-                            📅 22 November 2026
-                        </p>
+                        <p id="bookingEventDescription"></p>
 
-                        <p>
-                            📍 Mumbai
-                        </p>
+                        <p id="bookingEventDate"></p>
 
-                        <h4 class="event-price">
-                            ₹1,499
-                            <small>/ ticket</small>
-                        </h4>
-
-                        <button
-                            class="btn event-btn"
-                            onclick="selectEvent('Music Festival', 1499)"
-                        >
-                            Book Now
-                        </button>
+                        <p id="bookingEventVenue"></p>
 
                     </div>
 
                 </div>
 
-            </div>
 
+                <!-- BOOKING FORM -->
 
-            <!-- EVENT 3 -->
-
-            <div class="col-md-4">
-
-                <div class="event-card">
-
-                    <div class="event-icon">
-                        💼
-                    </div>
-
-                    <div class="event-content">
-
-                        <span class="event-category">
-                            BUSINESS
-                        </span>
-
-                        <h3>
-                            Business Summit
-                        </h3>
-
-                        <p>
-                            📅 5 December 2026
-                        </p>
-
-                        <p>
-                            📍 Bangalore
-                        </p>
-
-                        <h4 class="event-price">
-                            ₹1,199
-                            <small>/ ticket</small>
-                        </h4>
-
-                        <button
-                            class="btn event-btn"
-                            onclick="selectEvent('Business Summit', 1199)"
-                        >
-                            Book Now
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= BOOKING SECTION ================= -->
-
-<section id="booking" class="booking-section">
-
-    <div class="container">
-
-        <div class="section-heading text-center">
-
-            <p class="section-small">
-                RESERVE YOUR SEAT
-            </p>
-
-            <h2>Book Your Tickets</h2>
-
-            <p>
-                Enter your details and complete your booking.
-            </p>
-
-        </div>
-
-
-        <div class="row justify-content-center mt-4">
-
-            <div class="col-lg-7">
-
-                <div class="booking-card">
+                <div class="panel booking-panel">
 
                     <form id="bookingForm">
 
-                        <!-- NAME -->
+                        <label>
+                            Select event
 
-                        <div class="mb-3">
-
-                            <label for="name" class="form-label">
-                                Full Name
-                            </label>
-
-                            <input
-                                type="text"
-                                id="name"
-                                class="form-control"
-                                placeholder="Enter your full name"
-                            >
-
-                            <small id="nameError" class="error-message"></small>
-
-                        </div>
-
-
-                        <!-- EMAIL -->
-
-                        <div class="mb-3">
-
-                            <label for="email" class="form-label">
-                                Email Address
-                            </label>
-
-                            <input
-                                type="email"
-                                id="email"
-                                class="form-control"
-                                placeholder="example@gmail.com"
-                            >
-
-                            <small id="emailError" class="error-message"></small>
-
-                        </div>
-
-
-                        <!-- MOBILE -->
-
-                        <div class="mb-3">
-
-                            <label for="mobile" class="form-label">
-                                Mobile Number
-                            </label>
-
-                            <input
-                                type="text"
-                                id="mobile"
-                                class="form-control"
-                                placeholder="10 digit mobile number"
-                                maxlength="10"
-                            >
-
-                            <small id="mobileError" class="error-message"></small>
-
-                        </div>
-
-
-                        <!-- EVENT -->
-
-                        <div class="mb-3">
-
-                            <label for="event" class="form-label">
-                                Select Event
-                            </label>
-
-                            <select id="event" class="form-select">
-
-                                <option value="">
-                                    -- Select an Event --
-                                </option>
-
-                                <option value="Tech Conference 2026">
-                                    Tech Conference 2026 - ₹999
-                                </option>
-
-                                <option value="Music Festival">
-                                    Music Festival - ₹1,499
-                                </option>
-
-                                <option value="Business Summit">
-                                    Business Summit - ₹1,199
-                                </option>
-
+                            <select id="event" required>
+                                <option value="">Choose an event</option>
                             </select>
-
-                            <small id="eventError" class="error-message"></small>
-
-                        </div>
+                        </label>
 
 
-                        <!-- TICKETS -->
+                        <div class="fields two">
 
-                        <div class="mb-3">
-
-                            <label for="tickets" class="form-label">
-                                Number of Tickets
-                            </label>
-
-                            <input
-                                type="number"
-                                id="tickets"
-                                class="form-control"
-                                min="1"
-                                max="10"
-                                value="1"
-                            >
-
-                            <small class="form-text">
-                                Maximum 10 tickets per booking.
-                            </small>
-
-                        </div>
-
-
-                        <!-- TICKET PRICE -->
-
-                        <div class="mb-3">
-
-                            <label for="ticketPrice" class="form-label">
-                                Ticket Price
-                            </label>
-
-                            <input
-                                type="text"
-                                id="ticketPrice"
-                                class="form-control"
-                                value="₹0"
-                                readonly
-                            >
-
-                        </div>
-
-
-                        <!-- TOTAL -->
-
-                        <div class="mb-4">
-
-                            <label for="totalAmount" class="form-label">
-                                Total Amount
-                            </label>
-
-                            <input
-                                type="text"
-                                id="totalAmount"
-                                class="form-control total-amount"
-                                value="₹0"
-                                readonly
-                            >
-
-                        </div>
-
-
-                        <!-- PAYMENT -->
-
-                        <div class="payment-box">
-
-                            <h5>
-                                💳 Payment Method
-                            </h5>
-
-                            <div class="form-check">
+                            <label>
+                                Full name
 
                                 <input
-                                    class="form-check-input"
+                                    id="fullName"
+                                    placeholder="Your full name"
+                                    maxlength="60"
+                                    required
+                                >
+                            </label>
+
+                            <label>
+                                Email address
+
+                                <input
+                                    id="email"
+                                    type="email"
+                                    placeholder="you@example.com"
+                                    maxlength="120"
+                                    required
+                                >
+                            </label>
+
+                        </div>
+
+
+                        <div class="fields two">
+
+                            <label>
+                                Mobile number
+
+                                <input
+                                    id="mobile"
+                                    inputmode="numeric"
+                                    maxlength="10"
+                                    placeholder="10-digit number"
+                                    required
+                                >
+                            </label>
+
+                            <label>
+                                Number of tickets
+
+                                <input
+                                    id="tickets"
+                                    type="number"
+                                    min="1"
+                                    max="10"
+                                    value="1"
+                                    required
+                                >
+                            </label>
+
+                        </div>
+
+
+                        <p class="error" id="bookingError"></p>
+
+
+                        <!-- PRICE SUMMARY -->
+
+                        <div class="price-summary">
+
+                            <div>
+                                <span>Price per ticket</span>
+                                <strong id="ticketPrice">₹0</strong>
+                            </div>
+
+                            <div>
+                                <span>Number of tickets</span>
+                                <strong id="ticketCount">1</strong>
+                            </div>
+
+                            <div>
+                                <span>Subtotal</span>
+                                <strong id="subtotalAmount">₹0</strong>
+                            </div>
+
+                            <div class="discount">
+                                <span>
+                                    ✦ Group discount
+                                    <small id="discountLabel">(0%)</small>
+                                </span>
+
+                                <strong id="discountAmount">−₹0</strong>
+                            </div>
+
+                            <div class="total">
+                                <span>Final amount</span>
+                                <strong id="totalAmount">₹0</strong>
+                            </div>
+
+                            <p
+                                id="groupDiscountMessage"
+                                class="discount-message"
+                            >
+                                Book 3 or more tickets to unlock
+                                group discounts!
+                            </p>
+
+                            <p id="ticketWarning" class="warning" hidden></p>
+
+                        </div>
+
+
+                        <!-- DEMO PAYMENT -->
+
+                        <fieldset>
+
+                            <legend>Demo payment method</legend>
+
+                            <label class="pay">
+                                <input
                                     type="radio"
-                                    name="payment"
-                                    id="upi"
+                                    name="paymentMethod"
                                     value="UPI"
                                     checked
                                 >
 
-                                <label
-                                    class="form-check-label"
-                                    for="upi"
-                                >
-                                    UPI / Demo Payment
-                                </label>
+                                UPI
 
-                            </div>
+                                <small>No real charge</small>
+                            </label>
 
-
-                            <div class="form-check">
-
+                            <label class="pay">
                                 <input
-                                    class="form-check-input"
                                     type="radio"
-                                    name="payment"
-                                    id="card"
+                                    name="paymentMethod"
                                     value="Card"
                                 >
 
-                                <label
-                                    class="form-check-label"
-                                    for="card"
-                                >
-                                    Debit / Credit Card (Demo)
-                                </label>
+                                Credit / debit card
 
-                            </div>
+                                <small>Demo only</small>
+                            </label>
 
-                        </div>
+                        </fieldset>
 
 
-                        <!-- SUBMIT -->
-
-                        <button
-                            type="submit"
-                            class="btn confirm-btn w-100"
-                        >
-                            Proceed to Payment
+                        <button class="primary wide" type="submit">
+                            Confirm demo booking →
                         </button>
 
+                        <p class="note">
+                            No real payment is processed and no ticket
+                            email is sent.
+                        </p>
+
                     </form>
-
-
-                    <!-- CONFIRMATION -->
-
-                    <div
-                        id="confirmation"
-                        class="confirmation-box"
-                    ></div>
 
                 </div>
 
             </div>
 
-        </div>
-
-    </div>
-
-</section>
+        </section>
 
 
-<!-- ================= CONTACT ================= -->
+        <!-- PAGE 4: CONFIRMATION -->
 
-<section id="contact" class="contact-section">
+        <section class="view page" id="confirmationView">
 
-    <div class="container text-center">
+            <div class="confirm panel">
 
-        <p class="section-small">
-            GET IN TOUCH
-        </p>
+                <div class="success">✓</div>
 
-        <h2>Contact EventHub</h2>
+                <p class="eyebrow">DEMO BOOKING CREATED</p>
 
-        <p>
-            Have questions about your booking?
-        </p>
+                <h1>
+                    You're on the
+                    <span class="gradient">list!</span>
+                </h1>
 
-        <p class="contact-email">
-            📧 support@eventhub.com
-        </p>
+                <p class="muted">
+                    No payment was taken. Your demo details are below.
+                </p>
 
-    </div>
+                <div
+                    id="confirmationDetails"
+                    class="confirmation-details"
+                ></div>
 
-</section>
+                <button class="primary" data-view="explore">
+                    Discover more events →
+                </button>
+
+                <button class="outline" data-view="mybookings">
+                    My bookings
+                </button>
+
+            </div>
+
+        </section>
 
 
-<!-- ================= FOOTER ================= -->
+        <!-- PAGE 5: MY BOOKINGS -->
 
-<footer>
+        <section class="view page" id="mybookingsView">
 
-    <div class="container text-center">
+            <p class="eyebrow">YOUR EVENT HISTORY</p>
 
-        <h4>
+            <h1>
+                My <span class="gradient">bookings.</span>
+            </h1>
+
+            <p class="muted">
+                Bookings saved in this browser demo.
+            </p>
+
+            <div id="bookingHistoryList" class="history-list"></div>
+
+        </section>
+
+
+        <!-- PAGE 6: ABOUT -->
+
+        <section class="view page" id="aboutView">
+
+            <div class="about panel">
+
+                <p class="eyebrow">A LITTLE ABOUT US</p>
+
+                <h1>
+                    Life happens
+                    <span class="gradient">out there.</span>
+                </h1>
+
+                <p class="lead">
+                    EventHub is a student-friendly event discovery
+                    and ticket-booking prototype designed to help
+                    you find something exciting and plan your next
+                    experience.
+                </p>
+
+                <div class="stats">
+
+                    <div>
+                        <strong>12+</strong>
+                        <span>sample events</span>
+                    </div>
+
+                    <div>
+                        <strong>8</strong>
+                        <span>categories</span>
+                    </div>
+
+                    <div>
+                        <strong>1</strong>
+                        <span>place to discover</span>
+                    </div>
+
+                </div>
+
+                <p class="note">
+                    This frontend demo does not process payments,
+                    send email, or save bookings to a server/database.
+                </p>
+
+                <button class="primary" data-view="explore">
+                    Explore events →
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <a class="brand" href="#" data-view="explore">
+            <span class="logo">E✦</span>
             Event<span>Hub</span>
-        </h4>
+        </a>
 
-        <p>
-            Your gateway to unforgettable experiences.
-        </p>
+        <span>Made for moments that matter.</span>
 
-        <p class="copyright">
-            © 2026 EventHub. All Rights Reserved.
-        </p>
+        <span>
+            © <span id="currentYear"></span>
+            EventHub · Student project demo
+        </span>
 
-    </div>
-
-</footer>
-
-
-<!-- Bootstrap JavaScript -->
-
-<script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-</script>
-
-<!-- Custom JavaScript -->
-
-<script src="script.js"></script>
+    </footer>
 
 </body>
 </html>
